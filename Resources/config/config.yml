@@ -1,0 +1,13 @@
+parameters:
+    payment.service.class: ChubProduction\InterkassaBundle\Service\PaymentService
+    payment.doctrine.manager.class: ChubProduction\InterkassaBundle\Manager\PaymentDoctrineManager
+
+services:
+    payment.doctrine.manager:
+        class: %payment.doctrine.manager.class%
+        arguments: [ @service_container ]
+    payment:
+        class: %payment.service.class%
+        arguments: [ @service_container, %payment_parameters% ]
+        calls:
+           - [ 'setManager', [ @payment.doctrine.manager ] ]

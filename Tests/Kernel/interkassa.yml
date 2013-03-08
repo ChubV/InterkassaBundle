@@ -1,0 +1,7 @@
+interkassa:
+  connections:
+    intercassa:
+      shop_id: ololo
+      secret_key: ololo
+      fail_url: /ru/profile/balance
+      success_url: /ru/profile/balance

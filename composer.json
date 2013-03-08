@@ -1,0 +1,39 @@
+{
+    "name": "chub/interkassa-bundle",
+    "type": "symfony-bundle",
+    "description": "Bundle to integrate interkassa payment system to your Symfony2 project",
+    "keywords": ["interkassa bundle"],
+    "homepage": "https://github.com/ChubV/InterkassaBundle",
+    "authors": [
+        {
+            "name": "Vladimir Chub",
+            "email": "v@chub.com.ua",
+            "homepage": "https://github.com/ChubV"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "symfony/framework-bundle": ">=2.1, <2.3.*-dev",
+        "symfony/yaml": ">=2.1",
+	    "twig/extensions": "1.0.*",
+	    "twig/twig": ">=1.5",
+	    "symfony/twig-bundle": ">=2.1",
+	    "symfony/form": ">=2.1"
+    },
+	"require-dev": {
+		"symfony/finder": "2.*",
+		"symfony/class-loader": ">=2.1",
+		"symfony/browser-kit": ">=2.1",
+		"symfony/css-selector": ">=2.1"
+	},
+    "autoload": {
+        "psr-0": { "ChubProduction\\InterkassaBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "ChubProduction/InterkassaBundle",
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.2-dev"
+		}
+	}
+}
