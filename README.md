@@ -5,6 +5,7 @@ Symfony2 InterkassaBundle allows us to get user payments using [Interkassa] syst
 [Interkassa] is the one of the biggest payment system integrator in Russia and Ukraine.
 
 [![Build Status](https://secure.travis-ci.org/ChubV/InterkassaBundle.png)](http://travis-ci.org/ChubV/InterkassaBundle)
+[![knp](http://knpbundles.com/ChubV/InterkassaBundle/badge-short)](http://knpbundles.com/ChubV/InterkassaBundle)
 
 [Interkassa]: http://interkassa.com
 

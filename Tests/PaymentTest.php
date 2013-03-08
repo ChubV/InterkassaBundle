@@ -33,7 +33,7 @@ class PaymentTest extends WebTestCase
 		$this->payment->setManager(new TestManager());
 		$params = self::$kernel->getContainer()->getParameter('payment_parameters');
 		$this->settings = $params['connections'];
-		$this->connection = array_keys($this->settings)[0];
+		$this->connection = current(array_keys($this->settings));
 	}
 
     public function testService()
@@ -103,7 +103,7 @@ class PaymentTest extends WebTestCase
 			'ik_trans_id' => '',
 			'ik_currency_exch' => '',
 			'ik_fees_payer' => '');
-		list($status, $x) = $this->getTestStatusData()[0];
+		list($status, $x) = current($this->getTestStatusData());
 		$data = array_merge($dummy, $x);
 		$shopId = $this->settings[$this->connection]['shop_id'];
 		$key = $this->settings[$this->connection]['secret_key'];
@@ -128,7 +128,7 @@ class PaymentTest extends WebTestCase
 			'ik_trans_id' => '',
 			'ik_currency_exch' => '',
 			'ik_fees_payer' => '');
-		list($status, $x) = $this->getTestStatusData()[0];
+		list($status, $x) = current($this->getTestStatusData());
 		$data = array_merge($dummy, $x);
 		$this->client->request('POST', $url, $data);
 		$this->assertTrue($this->client->getResponse()->isRedirect($this->settings[$this->connection]['fail_url']));
