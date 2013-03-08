@@ -107,10 +107,11 @@ class PaymentService implements PaymentServiceInterface
 	public function success(Request $request, $connection)
 	{
 		$payment = $this->manager->find($request->get('ik_payment_id'));
+		$conn = $this->getConnection($connection);
 		if ($payment && $request->get('ik_payment_state') == 'success' && $payment->isPaid()) {
-			return new RedirectResponse($this->getConnection($connection)['success_url']);
+			return new RedirectResponse($conn['success_url']);
 		} else {
-			return new RedirectResponse($this->getConnection($connection)['fail_url']);
+			return new RedirectResponse($conn['fail_url']);
 		}
 	}
 
@@ -122,7 +123,9 @@ class PaymentService implements PaymentServiceInterface
 	 */
 	public function fail(Request $request, $connection)
 	{
-		return new RedirectResponse($this->getConnection($connection)['fail_url']);
+		$conn = $this->getConnection($connection);
+		
+		return new RedirectResponse($conn['fail_url']);
 	}
 
 	/**
