@@ -47,7 +47,8 @@ class PaymentService implements PaymentServiceInterface
 		$payment = new Payment();
 		$payment->setAmount($item->getAmount())
 				->setDescription($item->getDescription())
-				->setShopId($conn['shop_id']);
+				->setShopId($conn['shop_id'])
+				->setPaid(false);
 
 		$item->setPayment($payment);
 		$this->manager->savePayment($payment);
