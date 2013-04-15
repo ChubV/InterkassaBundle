@@ -50,6 +50,22 @@ interkassa:
     # ....
 ```
 
+Add some routes:
+
+``` yaml
+payment_status:
+    pattern:   /payment/status/{connection}
+    defaults:  { _controller: InterkassaBundle:Payment:status }
+
+payment_success:
+    pattern:   /payment/success/{connection}
+    defaults:  { _controller: InterkassaBundle:Payment:success }
+
+payment_fail:
+    pattern:   /payment/fail/{connection}
+    defaults:  { _controller: InterkassaBundle:Payment:fail }
+```
+
 Usage
 =====
 
