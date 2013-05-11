@@ -1,7 +1,7 @@
 <?php
 namespace ChubProduction\InterkassaBundle\Service;
 
-use Symfony\Component\HttpFoundation\Response;
+use ChubProduction\InterkassaBundle\Entity\Payment;
 use Symfony\Component\HttpFoundation\Request;
 use ChubProduction\InterkassaBundle\Manager\PaymentManagerInterface;
 
@@ -16,9 +16,16 @@ interface PaymentServiceInterface
 	 * @param PaymentItemInterface $item       Item to generate invoice for
 	 * @param string               $connection Shop connection name
 	 *
-	 * @return Response
+	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	public function createInvoice(PaymentItemInterface $item, $connection);
+
+	/**
+	 * @param Payment $payment
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function createInvoiceForm(Payment $payment);
 
 	/**
 	 * @param PaymentManagerInterface $repository
