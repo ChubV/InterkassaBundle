@@ -55,9 +55,19 @@ class PaymentService implements PaymentServiceInterface
 
 		$this->dispatch(InterkassaPaymentEvent::ON_INVOICE, new InterkassaPaymentEvent($payment));
 
+		return $this->createInvoiceForm($payment);
+	}
+
+	/**
+	 * @param Payment $payment
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function createInvoiceForm(Payment $payment)
+	{
 		return $this->c
-					->get('templating')
-					->renderResponse('InterkassaBundle::invoice.html.twig', compact('payment'));
+			->get('templating')
+			->renderResponse('InterkassaBundle::invoice.html.twig', compact('payment'));
 	}
 
 	/**
@@ -125,7 +135,7 @@ class PaymentService implements PaymentServiceInterface
 	public function fail(Request $request, $connection)
 	{
 		$conn = $this->getConnection($connection);
-		
+
 		return new RedirectResponse($conn['fail_url']);
 	}
 
